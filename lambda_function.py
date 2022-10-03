@@ -1,5 +1,4 @@
-import getGoogleTrans
-import getPapagoTrans
+from translate import getGoogleTrans, getPapagoTrans
 
 
 def create_papago_return(text1, text2):
