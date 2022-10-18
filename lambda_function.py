@@ -1,26 +1,15 @@
 from translate import getGoogleTrans, getPapagoTrans
 
 
-def create_papago_return(text1, text2):
-    return {
-        "source": "en",
-        "target": "ko",
-        "text": {
-            "origin": text1,
-            "translated": text2
-        }
-    }
-
-
 def lambda_handler(event, context):
-    print(event)
-    print(context)
     msg = event['message']
+    src = event['source']
+    tgt = event['target']
 
-    translated_text = getPapagoTrans.get_translate(msg)
-    # translated_text = get_google_trans(msg)
+    # translated_text = getPapagoTrans.get_translate(msg)
+    result = getGoogleTrans.get_translate(msg, src, tgt)
 
     return {
         'statusCode': 200,
-        'body': create_papago_return(msg, translated_text)
+        'body': result
     }
