@@ -1,4 +1,5 @@
 from googletrans import Translator
+from constraints import TRANSLATE
 
 
 def get_translate(texts, src, tgt):
@@ -9,12 +10,12 @@ def get_translate(texts, src, tgt):
 
     # 번역 결과로 이미 주어져서 사용안해도 될듯 X
 
-    if extra_data["all-translations"] is not None:
+    if extra_data[TRANSLATE.ALL_TRANSLATIONS] is not None:
         # 모든 번역 결과
         allTranslations = {}
-        for translations in extra_data["all-translations"]:
-            wordType = translations[0]
-            possibleTranslations = translations[1]
+        for translations in extra_data[TRANSLATE.ALL_TRANSLATIONS]:
+            wordType = translations[TRANSLATE.WORD_TYPE_IDX]
+            possibleTranslations = translations[TRANSLATE.POSSIBLE_WORDS_IDX]
 
             allTranslations[wordType] = possibleTranslations
     else:

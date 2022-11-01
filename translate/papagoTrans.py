@@ -1,6 +1,10 @@
 import json
 import urllib
 
+'''
+    현재 프로젝트에는 Google Translate를 사용하고 있어 해당 함수는 사용하지 않고 있습니다.
+'''
+
 
 def get_translate(text):
 
