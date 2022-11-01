@@ -12,10 +12,13 @@ def googleTranslate(request):
     user_serializer = RequestSerializer(data=request.data)
 
     if user_serializer.is_valid():
-        msg, src, tgt = user_serializer.data.values()
-        result = googleTrans.get_translate(msg, src, tgt)
+        try:
+            msg, src, tgt = user_serializer.data.values()
+            result = googleTrans.get_translate(msg, src, tgt)
 
-        return Response(result, status=status.HTTP_200_OK)
+            return Response(result, status=status.HTTP_200_OK)
+        except ValueError:
+            return Response(user_serializer.error_messages["invalid"], status=status.HTTP_400_BAD_REQUEST)
 
     else:
         return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
