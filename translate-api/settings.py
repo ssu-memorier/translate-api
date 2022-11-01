@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'restApi.apps.ApiUserConfig',
+    'restApi.apps.ApiRequestConfig',
     'rest_framework',
 ]
 
@@ -126,6 +126,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# whitenoise를 사용하기 위한 URL, ROOT, DIR 변수 설정
 STATIC_URL = 'static/'
 STATIC_ROOT = 'staticfiles'
 
