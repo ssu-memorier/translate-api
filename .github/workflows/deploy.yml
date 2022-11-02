@@ -25,7 +25,7 @@ jobs:
           DJANGO_KEY: ${{ secrets.DJANGO_KEY }}
 
       - name: CloudFoundry push application with different directory
-        uses: jhunt/cf-push@main
+        uses: jiwonii97/cf-push@main
         with:
           appdir: "." # use the appdir option to select a specif folder where the cf app is stored
           api: ${{ secrets.PAAS_TA_URL }}
