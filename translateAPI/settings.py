@@ -10,23 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 from pathlib import Path
 import os
-import json
 
 from constraints import KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open(KEY.KEY_PATH, KEY.READ_MODE, encoding=KEY.UTF8) as f:
-    keys = json.load(f)
+load_dotenv()   # load .env
+key = os.environ.get(KEY.DJANGOKEY)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = f'django-insecure-{keys["djangoSecret"]}'
+SECRET_KEY = f'django-insecure-{key}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
