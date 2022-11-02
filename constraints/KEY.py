@@ -1,3 +1,3 @@
-KEY_PATH = "assets/djangoSecret.json"
+KEY_PATH = "keyFile"
 READ_MODE = "r"
 UTF8 = "utf-8"
