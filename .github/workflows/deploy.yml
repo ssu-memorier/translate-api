@@ -17,13 +17,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: create-django-json
-        id: create-json-1 # First ID
-        uses: jsdaniell/create-json@v1.2.1
+      - name: create-env-json
+        uses: schdck/create-env-json@v2
+        id: create-env
         with:
-          name: "djangoSecret.json"
-          json: ${{ secrets.DJANGO_KEY}}
-          dir: "assets/"
+          file-name: 'assets/djangoSecret.json'
+          djangoSecret: ${{ secrets.DJANGO_KEY }}
       - name: CloudFoundry push application with different directory
         uses: jhunt/cf-push@main
         with:
