@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: gomgukTranslateAPI
+  - name: gomguk22TranslateAPI
     buildpack: python_buildpack
     memory: 512M
     instances: 1
